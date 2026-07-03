@@ -1,0 +1,1370 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Стратегия 2027 / Триада</title>
+  <meta name="description" content="Премиальная технологичная HTML-презентация Стратегия 2027 / Триада.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #030303;
+      --bg-deep: #050505;
+      --bg-soft: #111111;
+      --graphite: #181818;
+      --panel: rgba(255, 255, 255, .055);
+      --panel-strong: rgba(255, 255, 255, .095);
+      --line: rgba(255, 255, 255, .08);
+      --line-strong: rgba(255, 255, 255, .16);
+      --text: #f2f2f2;
+      --muted: #b8b8b8;
+      --dim: #7a7a7a;
+      --metal: #d6d6d6;
+      --ozon-electric: #005bff;
+      --ozon-electric-soft: rgba(0, 91, 255, .22);
+      --distributors: #70e0a4;
+      --distributors-soft: rgba(112, 224, 164, .18);
+      --ecom: #6fefe1;
+      --ecom-soft: rgba(111, 239, 225, .18);
+      --pharmacy: #a78bfa;
+      --pharmacy-soft: rgba(167, 139, 250, .18);
+      --neutral-accent: #d6d6d6;
+      --neutral-accent-soft: rgba(214, 214, 214, .12);
+      --accent: var(--neutral-accent);
+      --accent-soft: var(--neutral-accent-soft);
+      --radius: 30px;
+      --ease: cubic-bezier(.2, .8, .2, 1);
+      font-family: "SF Pro Display", "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      min-height: 100%;
+      background: var(--bg);
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100%;
+      overflow-x: hidden;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+
+    button {
+      border: 0;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+      background: transparent;
+    }
+
+    a { color: inherit; }
+
+    .deck {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 50% 34%, rgba(255,255,255,.075), transparent 27rem),
+        radial-gradient(circle at 50% 120%, rgba(255,255,255,.045), transparent 34rem),
+        linear-gradient(180deg, #050505 0%, #030303 100%);
+    }
+
+    .deck::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 50% 35%, rgba(255,255,255,.06), transparent 26%),
+        radial-gradient(circle at 16% 10%, var(--accent-soft), transparent 22%),
+        radial-gradient(circle at 90% 92%, rgba(255,255,255,.04), transparent 24%),
+        linear-gradient(90deg, rgba(0,0,0,.78), transparent 30%, transparent 70%, rgba(0,0,0,.72));
+      opacity: .72;
+    }
+
+    .chrome {
+      display: none;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: rgba(242,242,242,.86);
+      font-size: 14px;
+      line-height: 1;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      position: relative;
+      background:
+        linear-gradient(140deg, rgba(255,255,255,.16), rgba(255,255,255,.03)),
+        #181818;
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.12),
+        0 14px 34px rgba(0,0,0,.42);
+    }
+
+    .brand-mark::before,
+    .brand-mark::after,
+    .brand-mark span {
+      content: "";
+      position: absolute;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      border-radius: 2px;
+      background: linear-gradient(180deg, #fff, #8d8d8d 52%, #f4f4f4);
+      transform-origin: center;
+      opacity: .9;
+    }
+
+    .brand-mark::before {
+      left: 10px;
+      transform: rotate(-17deg);
+    }
+
+    .brand-mark span {
+      left: 16px;
+    }
+
+    .brand-mark::after {
+      left: 22px;
+      transform: rotate(17deg);
+    }
+
+    .tools {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      pointer-events: auto;
+    }
+
+    .tool {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      color: rgba(242,242,242,.82);
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.045);
+      backdrop-filter: blur(16px);
+      transition: transform .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease);
+    }
+
+    .tool:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.22);
+      background: rgba(255,255,255,.08);
+    }
+
+    .counter {
+      min-width: 74px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      padding: 0 14px;
+      border-radius: 999px;
+      color: rgba(242,242,242,.72);
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.04);
+      backdrop-filter: blur(16px);
+      font-size: 13px;
+      letter-spacing: .08em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .slide {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      scroll-snap-align: start;
+      display: grid;
+      place-items: center;
+      padding: 72px 96px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(255,255,255,.09), transparent 27rem),
+        radial-gradient(circle at 50% 116%, rgba(255,255,255,.04), transparent 36rem),
+        linear-gradient(180deg, #080808 0%, #030303 100%);
+    }
+
+    .slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.35), transparent 28%, transparent 68%, rgba(0,0,0,.54)),
+        radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,.62) 100%);
+    }
+
+    .slide[data-accent="neutral"] { --accent: var(--neutral-accent); --accent-soft: var(--neutral-accent-soft); }
+    .slide[data-accent="ozon"] { --accent: var(--ozon-electric); --accent-soft: var(--ozon-electric-soft); }
+    .slide[data-accent="distributors"] { --accent: var(--distributors); --accent-soft: var(--distributors-soft); }
+    .slide[data-accent="ecom"] { --accent: var(--ecom); --accent-soft: var(--ecom-soft); }
+    .slide[data-accent="pharmacy"] { --accent: var(--pharmacy); --accent-soft: var(--pharmacy-soft); }
+
+    .slide-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -4;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .44;
+      filter: saturate(.72) contrast(1.06) brightness(.76);
+      transform: scale(1.015);
+    }
+
+    .slide-bg.right {
+      object-position: center right;
+      opacity: .5;
+    }
+
+    .slide-bg.soft {
+      opacity: .3;
+      filter: saturate(.64) contrast(1.08) brightness(.64);
+    }
+
+    .canvas {
+      width: min(1728px, 100%);
+      aspect-ratio: 16 / 9;
+      max-height: calc(100vh - 144px);
+      display: grid;
+      position: relative;
+    }
+
+    .center {
+      place-items: center;
+      text-align: center;
+    }
+
+    .left {
+      align-items: center;
+      grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr);
+      gap: 72px;
+    }
+
+    .split {
+      align-items: center;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 76px;
+    }
+
+    .meta {
+      display: none;
+    }
+
+    .kicker {
+      margin: 0 0 24px;
+      color: var(--accent);
+      font-size: clamp(14px, 1.08vw, 20px);
+      font-weight: 560;
+      line-height: 1.15;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p {
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 1120px;
+      color: var(--text);
+      font-size: clamp(78px, 7.1vw, 132px);
+      font-weight: 300;
+      line-height: .97;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      color: #e6e6e6;
+      font-size: clamp(50px, 5.2vw, 92px);
+      font-weight: 300;
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      color: var(--text);
+      font-size: clamp(28px, 2.25vw, 48px);
+      font-weight: 360;
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 780px;
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: clamp(23px, 1.75vw, 34px);
+      font-weight: 360;
+      line-height: 1.34;
+    }
+
+    .micro {
+      color: var(--dim);
+      font-size: clamp(16px, 1.05vw, 20px);
+      line-height: 1.4;
+    }
+
+    .metal {
+      background: linear-gradient(180deg, #fff 0%, #d8d8d8 35%, #8c8c8c 78%, #f4f4f4 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 28px 60px rgba(255,255,255,.08);
+    }
+
+    .cover-core {
+      position: relative;
+      display: grid;
+      justify-items: center;
+      align-content: center;
+      gap: 34px;
+      min-height: 62%;
+    }
+
+    .mark-lockup {
+      display: grid;
+      justify-items: center;
+      gap: 30px;
+      transform: translateY(-10px);
+    }
+
+    .year {
+      color: #d8d8d8;
+      font-size: clamp(36px, 4vw, 70px);
+      font-weight: 220;
+      letter-spacing: .24em;
+      text-indent: .24em;
+    }
+
+    .triad-symbol {
+      width: min(420px, 32vw);
+      aspect-ratio: 1.7 / 1;
+      display: grid;
+      place-items: center;
+      position: relative;
+      border-radius: 36px;
+      background:
+        radial-gradient(circle at 50% 25%, rgba(255,255,255,.13), transparent 38%),
+        linear-gradient(145deg, #202020, #111);
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.06),
+        inset 0 40px 80px rgba(255,255,255,.035),
+        0 36px 110px rgba(0,0,0,.62);
+    }
+
+    .triad-symbol::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), transparent 48%, rgba(0,0,0,.2));
+      mask-image: radial-gradient(ellipse at center, black 32%, transparent 74%);
+      pointer-events: none;
+    }
+
+    .triad-symbol i {
+      position: absolute;
+      width: 4px;
+      height: 64%;
+      border-radius: 99px;
+      background: linear-gradient(180deg, #fff 0%, #a3a3a3 48%, #efefef 100%);
+      box-shadow: 0 0 18px rgba(255,255,255,.18);
+    }
+
+    .triad-symbol i:nth-child(1) { transform: rotate(-18deg) translateX(-58px); }
+    .triad-symbol i:nth-child(2) { transform: translateX(0); }
+    .triad-symbol i:nth-child(3) { transform: rotate(18deg) translateX(58px); }
+
+    .cover-copy {
+      text-align: center;
+      display: grid;
+      gap: 18px;
+      justify-items: center;
+    }
+
+    .cover-copy h1 {
+      font-size: clamp(72px, 7.4vw, 138px);
+      letter-spacing: 0;
+    }
+
+    .thin-rule {
+      width: 96px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: .82;
+    }
+
+    .statement {
+      max-width: 1280px;
+      font-size: clamp(62px, 6vw, 112px);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: 0;
+      text-align: center;
+    }
+
+    .statement strong {
+      font-weight: 360;
+      color: var(--text);
+    }
+
+    .ghost-orbit {
+      position: absolute;
+      width: min(760px, 54vw);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.07);
+      box-shadow: inset 0 0 100px rgba(255,255,255,.025);
+      opacity: .74;
+    }
+
+    .ghost-orbit::before,
+    .ghost-orbit::after {
+      content: "";
+      position: absolute;
+      inset: 15%;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+
+    .ghost-orbit::after {
+      inset: 31%;
+      border-color: var(--accent-soft);
+    }
+
+    .architecture {
+      display: grid;
+      grid-template-columns: 1fr minmax(310px, .82fr) 1fr;
+      align-items: center;
+      gap: 42px;
+      width: 100%;
+    }
+
+    .arch-stack {
+      display: grid;
+      gap: 22px;
+    }
+
+    .panel {
+      position: relative;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.085), rgba(255,255,255,.025)),
+        rgba(24,24,24,.52);
+      border: 1px solid var(--line);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.08),
+        0 30px 90px rgba(0,0,0,.42);
+      backdrop-filter: blur(18px);
+    }
+
+    .arch-panel {
+      min-height: 188px;
+      padding: 32px 34px;
+      display: grid;
+      align-content: center;
+      gap: 15px;
+    }
+
+    .tone-general { --accent: var(--neutral-accent); --accent-soft: var(--neutral-accent-soft); }
+    .tone-distributors { --accent: var(--distributors); --accent-soft: var(--distributors-soft); }
+    .tone-ecom { --accent: var(--ecom); --accent-soft: var(--ecom-soft); }
+    .tone-pharmacy { --accent: var(--pharmacy); --accent-soft: var(--pharmacy-soft); }
+
+    .ozon-accent {
+      color: var(--ozon-electric);
+      text-shadow: 0 0 34px var(--ozon-electric-soft);
+    }
+
+    .arch-panel .num {
+      color: var(--accent);
+      font-size: clamp(30px, 2.6vw, 48px);
+      font-weight: 320;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .arch-panel p {
+      max-width: 360px;
+      color: var(--muted);
+      font-size: clamp(18px, 1.25vw, 24px);
+      line-height: 1.3;
+    }
+
+    .core-node {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(255,255,255,.16), rgba(255,255,255,.04) 44%, rgba(0,0,0,.5) 72%),
+        #0f0f0f;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,.035),
+        0 0 90px var(--accent-soft),
+        inset 0 0 70px rgba(255,255,255,.035);
+    }
+
+    .core-node::before {
+      content: "";
+      position: absolute;
+      inset: -34px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .core-node::after {
+      content: "";
+      position: absolute;
+      inset: -72px;
+      border-radius: 50%;
+      border: 1px solid var(--accent-soft);
+      opacity: .75;
+    }
+
+    .core-node h3 {
+      max-width: 260px;
+      font-size: clamp(30px, 2.7vw, 48px);
+      font-weight: 320;
+    }
+
+    .core-node p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: clamp(17px, 1.08vw, 21px);
+      line-height: 1.32;
+    }
+
+    .channel-list {
+      display: grid;
+      gap: 22px;
+      margin-top: 46px;
+    }
+
+    .channel-row {
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr);
+      gap: 22px;
+      align-items: center;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .channel-row:last-child { border-bottom: 0; }
+
+    .line-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid color-mix(in srgb, var(--accent) 52%, transparent);
+      background: rgba(255,255,255,.035);
+      color: var(--accent);
+      box-shadow: 0 0 28px var(--accent-soft);
+    }
+
+    .line-icon svg {
+      width: 30px;
+      height: 30px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .channel-row h3 {
+      font-size: clamp(25px, 1.75vw, 34px);
+      font-weight: 420;
+    }
+
+    .channel-row p {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: clamp(17px, 1.1vw, 22px);
+      line-height: 1.32;
+    }
+
+    .visual-frame {
+      position: relative;
+      min-height: 68%;
+      border-radius: 40px;
+      overflow: hidden;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.08),
+        0 40px 130px rgba(0,0,0,.45);
+    }
+
+    .visual-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: .82;
+      filter: saturate(.82) contrast(1.04);
+    }
+
+    .visual-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(3,3,3,.16), transparent 46%),
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,.08), transparent 36%);
+      pointer-events: none;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+      align-self: end;
+      width: 100%;
+      grid-column: 1 / -1;
+    }
+
+    .metric {
+      min-height: 330px;
+      padding: 40px 36px;
+      display: grid;
+      align-content: end;
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 50% 0%, var(--accent-soft), transparent 54%),
+        linear-gradient(145deg, rgba(255,255,255,.085), rgba(255,255,255,.025));
+      border: 1px solid var(--line);
+      box-shadow: 0 34px 100px rgba(0,0,0,.42);
+    }
+
+    .metric .value {
+      margin-bottom: 20px;
+      color: var(--text);
+      font-size: clamp(68px, 5.4vw, 104px);
+      font-weight: 260;
+      line-height: .92;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .metric h3 {
+      font-size: clamp(24px, 1.7vw, 33px);
+      font-weight: 420;
+    }
+
+    .metric p {
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: clamp(16px, 1.05vw, 21px);
+      line-height: 1.34;
+    }
+
+    .timeline {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0;
+      align-self: end;
+      margin-bottom: 76px;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 36px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.28), transparent);
+    }
+
+    .phase {
+      position: relative;
+      min-height: 250px;
+      padding: 0 24px;
+      display: grid;
+      align-content: start;
+      justify-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .phase::before {
+      content: "";
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(255,255,255,.2), rgba(255,255,255,.04) 58%),
+        #101010;
+      border: 1px solid var(--line-strong);
+      box-shadow: 0 0 46px var(--accent-soft);
+    }
+
+    .phase .quarter {
+      color: var(--accent);
+      font-size: clamp(14px, .95vw, 18px);
+      font-weight: 560;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+
+    .phase h3 {
+      max-width: 240px;
+      font-size: clamp(22px, 1.6vw, 31px);
+      font-weight: 390;
+    }
+
+    .phase p {
+      max-width: 235px;
+      color: var(--muted);
+      font-size: clamp(15px, .96vw, 19px);
+      line-height: 1.34;
+    }
+
+    .risk-table {
+      width: 100%;
+      align-self: end;
+      border-radius: 34px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      box-shadow: 0 38px 110px rgba(0,0,0,.44);
+    }
+
+    .risk-row {
+      display: grid;
+      grid-template-columns: 1.1fr .75fr 1fr .38fr;
+      gap: 28px;
+      align-items: center;
+      min-height: 92px;
+      padding: 24px 34px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: clamp(17px, 1.12vw, 22px);
+      line-height: 1.3;
+    }
+
+    .risk-row:first-child {
+      min-height: 70px;
+      color: var(--dim);
+      font-size: clamp(13px, .92vw, 17px);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .risk-row:last-child { border-bottom: 0; }
+
+    .risk-row strong {
+      color: var(--text);
+      font-weight: 420;
+    }
+
+    .status {
+      justify-self: start;
+      display: inline-grid;
+      place-items: center;
+      height: 34px;
+      padding: 0 14px;
+      border-radius: 999px;
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.045);
+      font-size: 13px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .status.critical {
+      color: #fff;
+      border-color: color-mix(in srgb, var(--accent) 48%, transparent);
+      background: color-mix(in srgb, var(--accent) 15%, transparent);
+      box-shadow: 0 0 34px var(--accent-soft);
+    }
+
+    .final-lockup {
+      display: grid;
+      justify-items: center;
+      gap: 40px;
+      text-align: center;
+    }
+
+    .final-lockup .triad-symbol {
+      width: min(360px, 29vw);
+    }
+
+    .final-lockup h2 {
+      max-width: 1160px;
+      font-size: clamp(62px, 6.1vw, 112px);
+    }
+
+    .final-lockup p {
+      max-width: 840px;
+      color: var(--muted);
+      font-size: clamp(24px, 1.7vw, 34px);
+      line-height: 1.32;
+    }
+
+    .hint {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      color: rgba(242,242,242,.38);
+      font-size: clamp(13px, .9vw, 16px);
+      line-height: 1.35;
+    }
+
+    .progress {
+      display: none;
+    }
+
+    .progress span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, #d6d6d6, var(--accent));
+      transition: width .25s var(--ease);
+    }
+
+    .print-note {
+      display: none;
+    }
+
+    .logo-intro {
+      display: grid;
+      place-items: center;
+      min-height: 100%;
+    }
+
+    .logo-intro .mark-lockup {
+      gap: 44px;
+      transform: none;
+    }
+
+    .logo-intro .year {
+      font-size: clamp(48px, 5.2vw, 92px);
+    }
+
+    .logo-intro .triad-symbol {
+      width: min(560px, 42vw);
+    }
+
+    @media (max-width: 1100px) {
+      html { scroll-snap-type: none; }
+      .chrome {
+        left: 18px;
+        right: 18px;
+        top: 16px;
+      }
+
+      .slide {
+        min-height: auto;
+        padding: 82px 20px 44px;
+      }
+
+      .canvas {
+        width: 100%;
+        min-height: calc(100vh - 126px);
+        aspect-ratio: auto;
+        max-height: none;
+      }
+
+      .left,
+      .split,
+      .architecture {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      h1 {
+        font-size: clamp(56px, 16vw, 92px);
+      }
+
+      h2,
+      .statement,
+      .final-lockup h2 {
+        font-size: clamp(42px, 12vw, 74px);
+      }
+
+      .lead {
+        font-size: clamp(20px, 5.4vw, 27px);
+      }
+
+      .cover-core {
+        min-height: auto;
+        padding-top: 28px;
+      }
+
+      .triad-symbol,
+      .final-lockup .triad-symbol {
+        width: min(320px, 76vw);
+      }
+
+      .ghost-orbit {
+        width: 86vw;
+      }
+
+      .arch-stack {
+        gap: 16px;
+      }
+
+      .arch-panel {
+        min-height: 150px;
+        padding: 26px;
+      }
+
+      .core-node {
+        width: min(340px, 78vw);
+        justify-self: center;
+      }
+
+      .visual-frame {
+        min-height: 360px;
+        border-radius: 28px;
+      }
+
+      .metric-grid,
+      .timeline {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 0;
+      }
+
+      .metric {
+        min-height: 220px;
+      }
+
+      .timeline::before {
+        display: none;
+      }
+
+      .phase {
+        min-height: auto;
+        grid-template-columns: 72px 1fr;
+        justify-items: start;
+        text-align: left;
+      }
+
+      .phase::before {
+        grid-row: span 3;
+      }
+
+      .risk-row {
+        grid-template-columns: 1fr;
+        gap: 9px;
+        padding: 22px;
+      }
+
+      .risk-row:first-child {
+        display: none;
+      }
+
+      .hint {
+        position: relative;
+        margin-top: 42px;
+        gap: 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .slide > .canvas {
+        opacity: 0;
+        transform: scale(.985) translateY(16px);
+        animation: reveal .85s var(--ease) forwards;
+      }
+
+      @keyframes reveal {
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+    }
+
+    @media print {
+      html, body {
+        width: 100%;
+        height: auto;
+        background: #030303 !important;
+        scroll-snap-type: none;
+      }
+
+      .chrome,
+      .progress {
+        display: none !important;
+      }
+
+      .slide {
+        width: 100vw;
+        min-height: 100vh;
+        break-after: page;
+        page-break-after: always;
+        padding: 72px 96px;
+      }
+
+      .canvas {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        max-height: none;
+      }
+
+      .print-note {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+  <header class="chrome" aria-label="Управление презентацией">
+  </header>
+
+  <main class="deck" id="deck">
+    <section class="slide" data-accent="neutral" aria-label="Логотип">
+      <div class="canvas center">
+        <div class="logo-intro">
+          <div class="mark-lockup" aria-label="Логотип .2027.">
+            <div class="year">.2027.</div>
+            <div class="triad-symbol" aria-hidden="true"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-accent="neutral" aria-label="Обложка">
+      <div class="canvas center">
+        <div class="cover-core">
+          <div class="cover-copy">
+            <div class="thin-rule"></div>
+            <h1 class="metal">Триада 2027</h1>
+            <p class="lead">Три канала. Единый центр управления. Одна логика роста.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-accent="neutral" aria-label="Большая идея">
+      <div class="canvas center">
+        <div class="ghost-orbit" aria-hidden="true"></div>
+        <p class="statement">2027 — это не три отдельных канала. <strong>Это один центр роста.</strong></p>
+        <p class="lead">Дистрибьюторы дают ширину. E-com дает сигнал спроса. Аптечные сети дают доверие и повторную покупку.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-accent="neutral" aria-label="Архитектура">
+      <img class="slide-bg soft" src="triada-visual-core.png" alt="">
+      <div class="canvas center">
+        <div class="architecture">
+          <div class="arch-stack">
+            <article class="panel arch-panel tone-distributors">
+              <div class="num">01</div>
+              <h3>Дистрибьюторы</h3>
+              <p>Ширина рынка, наличие, контроль условий и региональное покрытие.</p>
+            </article>
+            <article class="panel arch-panel tone-ecom">
+              <div class="num">02</div>
+              <h3>E-com</h3>
+              <p><span class="ozon-accent">Озон</span> как витрина спроса: цифровая полка, цена, рейтинг и скорость.</p>
+            </article>
+          </div>
+          <div class="core-node">
+            <div>
+              <h3>Единый центр управления</h3>
+              <p>Ассортимент. Маржа. Доступ. Ритм.</p>
+            </div>
+          </div>
+          <div class="arch-stack">
+            <article class="panel arch-panel tone-pharmacy">
+              <div class="num">03</div>
+              <h3>Аптечные сети</h3>
+              <p>Доверие, рекомендация, повторная покупка и устойчивый sell-out.</p>
+            </article>
+            <article class="panel arch-panel tone-general">
+              <div class="num">04</div>
+              <h3>Контур решений</h3>
+              <p>Один штаб, одна методика, одна прозрачная панель приоритетов.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-accent="distributors" aria-label="Канал Дистрибьюторы">
+      <img class="slide-bg right" src="triada-visual-distribution.png" alt="">
+      <div class="canvas left">
+        <div>
+          <p class="kicker">Канал ширины</p>
+          <h2>Доступность становится управляемой системой.</h2>
+          <p class="lead">Ключевой фокус — покрытие, условия и контроль наличия без ручного шума.</p>
+          <div class="channel-list">
+            <div class="channel-row">
+              <div class="line-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M3 10.5h18M5 10.5V20h14v-9.5M7 10.5V6l5-3 5 3v4.5M9 20v-5h6v5"/></svg>
+              </div>
+              <div><h3>Покрытие</h3><p>Приоритетные территории, SKU и партнерские условия.</p></div>
+            </div>
+            <div class="channel-row">
+              <div class="line-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 18h16M6 18V8m6 10V5m6 13v-7"/></svg>
+              </div>
+              <div><h3>Маржа</h3><p>Контроль бонусов, скидок и контрактной экономики.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="visual-frame">
+          <img src="triada-visual-distribution.png" alt="Визуальная карта дистрибуции 2027">
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-accent="ecom" aria-label="Канал E-com">
+      <img class="slide-bg right" src="triada-visual-ecom.png" alt="">
+      <div class="canvas left">
+        <div>
+          <p class="kicker">Канал сигнала</p>
+          <h2><span class="ozon-accent">Озон</span>-полка показывает, где растет спрос.</h2>
+          <p class="lead">Видимость, рейтинг, цена и наличие становятся ранними индикаторами роста в E-com.</p>
+          <div class="channel-list">
+            <div class="channel-row">
+              <div class="line-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="5.5"/><path d="M15 15l5 5"/></svg>
+              </div>
+              <div><h3>Видимость</h3><p><span class="ozon-accent">Озон</span>: топовые позиции в поиске, категориях и промо-механиках.</p></div>
+            </div>
+            <div class="channel-row">
+              <div class="line-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M6 6h15l-2 8H8L6 3H3"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+              </div>
+              <div><h3>Конверсия</h3><p>Цена, наличие, контент, отзывы и скорость доставки.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="visual-frame">
+          <img src="triada-visual-ecom.png" alt="Визуальная цифровая полка E-com 2027">
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-accent="pharmacy" aria-label="Канал Аптечные сети">
+      <img class="slide-bg right" src="triada-visual-pharmacy.png" alt="">
+      <div class="canvas left">
+        <div>
+          <p class="kicker">Канал доверия</p>
+          <h2>Рекомендация превращает доступ в повторную покупку.</h2>
+          <p class="lead">Аптечная сеть закрепляет выбор: доверие, консультация, полка и повтор.</p>
+          <div class="channel-list">
+            <div class="channel-row">
+              <div class="line-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-5"/></svg>
+              </div>
+              <div><h3>Доверие</h3><p>Экспертность, рекомендация фармацевта и понятный выбор.</p></div>
+            </div>
+            <div class="channel-row">
+              <div class="line-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-14 5"/><path d="M4 12a8 8 0 0 1 14-5"/><path d="M18 3v4h-4M6 21v-4h4"/></svg>
+              </div>
+              <div><h3>Повтор</h3><p>Лояльность, напоминания, программы и управляемый ассортимент.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="visual-frame">
+          <img src="triada-visual-pharmacy.png" alt="Визуальная стратегия аптечных сетей 2027">
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-accent="neutral" aria-label="Метрики">
+      <div class="canvas split">
+        <div>
+          <p class="kicker">Ключевые ориентиры</p>
+          <h2>Три числа достаточно, если они управляют решением.</h2>
+          <p class="lead">Фокус на марже, A-партнерах и едином ритме управления.</p>
+        </div>
+        <div class="metric-grid">
+          <article class="metric">
+            <div class="value metal">+5%</div>
+            <h3>Маржа</h3>
+            <p>Контроль условий и дисциплина промо.</p>
+          </article>
+          <article class="metric">
+            <div class="value metal">70%</div>
+            <h3>Фокус</h3>
+            <p>A-партнеры, SKU и территории роста.</p>
+          </article>
+          <article class="metric">
+            <div class="value metal">1</div>
+            <h3>Ритм</h3>
+            <p>Единый штаб и единая логика решений.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-accent="neutral" aria-label="Roadmap">
+      <div class="canvas">
+        <div>
+          <h2>Пять этапов вместо перегруженной карты.</h2>
+          <p class="lead">Каждый этап фиксирует одно управленческое изменение.</p>
+        </div>
+        <div class="timeline">
+          <article class="phase">
+            <span class="quarter">Q1</span>
+            <h3>Единая база</h3>
+            <p>SKU, каналы, условия, партнеры и маржа.</p>
+          </article>
+          <article class="phase">
+            <span class="quarter">Q2</span>
+            <h3>Приоритеты</h3>
+            <p>Фокус на A-партнерах и ассортиментных сценариях.</p>
+          </article>
+          <article class="phase">
+            <span class="quarter">Q3</span>
+            <h3>Синхронизация</h3>
+            <p>Единые решения по доступу, цене и промо.</p>
+          </article>
+          <article class="phase">
+            <span class="quarter">Q4</span>
+            <h3>Масштаб</h3>
+            <p>Репликация рабочих связок по каналам.</p>
+          </article>
+          <article class="phase">
+            <span class="quarter">2027</span>
+            <h3>Операционный ритм</h3>
+            <p>Постоянный штаб роста и контроль отклонений.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-accent="neutral" aria-label="Риски и контроль">
+      <img class="slide-bg soft" src="triada-visual-shield.png" alt="">
+      <div class="canvas">
+        <div>
+          <p class="kicker">Контроль без шума</p>
+          <h2>Риски видны только там, где они меняют решение.</h2>
+          <p class="lead">Строгая таблица, крупные строки, акцент только на критических отклонениях.</p>
+        </div>
+        <div class="risk-table" role="table" aria-label="Риски и контроль">
+          <div class="risk-row" role="row">
+            <span>Риск</span><span>Сигнал</span><span>Контроль</span><span>Статус</span>
+          </div>
+          <div class="risk-row" role="row">
+            <strong>Разрыв условий</strong><span>Маржа ниже плана</span><span>Единый лимит скидок и бонусов</span><span class="status critical">критично</span>
+          </div>
+          <div class="risk-row" role="row">
+            <strong>Потеря видимости</strong><span>Снижение <span class="ozon-accent">Озон</span>-полки</span><span>Еженедельный мониторинг E-com</span><span class="status">наблюдать</span>
+          </div>
+          <div class="risk-row" role="row">
+            <strong>Нет повтора</strong><span>Покупка не закрепляется</span><span>Связка рекомендации и лояльности</span><span class="status">контроль</span>
+          </div>
+          <div class="risk-row" role="row">
+            <strong>Разный ритм каналов</strong><span>Решения конфликтуют</span><span>Один штаб и календарь решений</span><span class="status">контроль</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-accent="neutral" aria-label="Финал">
+      <div class="canvas center">
+        <div class="final-lockup">
+          <div class="triad-symbol" aria-hidden="true"><i></i><i></i><i></i></div>
+          <h2 class="metal">Триада — единый центр управления ростом.</h2>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const slides = [...document.querySelectorAll(".slide")];
+    const progressBar = document.getElementById("progressBar");
+
+    function clampIndex(index) {
+      return Math.max(0, Math.min(index, slides.length - 1));
+    }
+
+    function currentIndex() {
+      const center = window.scrollY + window.innerHeight / 2;
+      let index = 0;
+      slides.forEach((slide, i) => {
+        const top = slide.offsetTop;
+        const bottom = top + slide.offsetHeight;
+        if (center >= top && center < bottom) index = i;
+      });
+      return index;
+    }
+
+    function updateChrome() {
+      const index = currentIndex();
+      progressBar.style.width = `${((index + 1) / slides.length) * 100}%`;
+      document.documentElement.style.setProperty("--accent", getComputedStyle(slides[index]).getPropertyValue("--accent"));
+    }
+
+    function goTo(index) {
+      const target = slides[clampIndex(index)];
+      window.scrollTo({ top: target.offsetTop, behavior: "smooth" });
+    }
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowDown" || event.key === "ArrowRight" || event.key === "PageDown" || event.key === " ") {
+        event.preventDefault();
+        goTo(currentIndex() + 1);
+      }
+      if (event.key === "ArrowUp" || event.key === "ArrowLeft" || event.key === "PageUp") {
+        event.preventDefault();
+        goTo(currentIndex() - 1);
+      }
+      if (event.key === "Home") {
+        event.preventDefault();
+        goTo(0);
+      }
+      if (event.key === "End") {
+        event.preventDefault();
+        goTo(slides.length - 1);
+      }
+    });
+
+    window.addEventListener("scroll", updateChrome, { passive: true });
+    window.addEventListener("resize", updateChrome);
+    updateChrome();
+  </script>
+</body>
+</html>
